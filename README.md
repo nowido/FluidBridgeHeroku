@@ -14,7 +14,7 @@ Common use case is to fire events in **FluidSync** area from any program having 
 
 ## FluidBridge usage
 
-**FluidBridge** supports `GET` requests in a form 
+**FluidBridge** supports `GET` requests with url in a form 
 ```
 https://fluidbridge.herokuapp.com/<channel>?<anything>
 ```
