@@ -6,6 +6,8 @@
 
 **FluidBridge** allows to dispatch web requests into **FluidSync** *publish* actions.
 
+Common use case is to fire events in **FluidSync** area from any program having no access to **FluidSync** itself. We keep **FluidBridge** as simple and lightweight as possible, so *webhook listeners* should be present in **FluidSync** area, translating plain urls from web requests into more or less complex objects, and then re-publishing. 
+
 ## Why Heroku?
 
 [Heroku](https://www.heroku.com) grants a generous free hosting. Verified accounts (credit card needed) get 1000 monthly *dyno* hours for absolutely free. So, **FluidBridge** service runs 24 hours a day, accessible all over the world.
@@ -17,7 +19,7 @@
 https://fluidbridge.herokuapp.com/<channel>?<anything>
 ```
 
-where `<channel>` is an arbitrary string containing no `‘?’` symbols, and `<anything>` is an arbitrary string.
+where `<channel>` is an arbitrary string containing no `‘?’` symbols, and `<anything>` is an arbitrary string. However, ‘arbitrary’ means ‘valid within an url’.
 
 For above request, **FluidBridge** emits **FluidSync** *publish* action:
 
@@ -39,6 +41,6 @@ fluidsync.emit(‘publish’, {
 
 At present, **FluidBridge** doesn’t support HTTP methods other than `GET`.
 
-## FluidBridge service is lightweight and almost stateless
+## FluidBridge service is dumb
 
-**FluidBridge** supports no validation of request url content, except of non-zero `<channel>` length, and `‘?’` symbol presence. You have to implement your own protocol over this service. 
+**FluidBridge** always answers `WHOK`, even if it doesn’t emit *publish* action due to invalid request, or temporary **FluidSync** disconnect. **FluidBridge** supports no validation of request url content, except of non-zero `<channel>` length, and `‘?’` symbol presence. You have to implement your own protocol over this service. 
