@@ -14,20 +14,20 @@
 
 **FluidBridge** supports `GET` requests in a form 
 ```
-https://fluidbridge.herokuapp.com/*<channel>*?*<anything>*
+https://fluidbridge.herokuapp.com/<channel>?<anything>
 ```
 
-where `*<channel>*` is an arbitrary string containing no `‘?’` symbols, and `*<anything>*` is an arbitrary string.
+where `<channel>` is an arbitrary string containing no `‘?’` symbols, and `<anything>` is an arbitrary string.
 
 For above request, **FluidBridge** emits **FluidSync** *publish* action:
 
 ```
 fluidsync.emit('publish', {
-    channel: *<channel>*,
+    channel: <channel>,
     from: 'webhook',
     payload: {
         method: req.method, 
-        url: /*<channel>*?*<anything>*, 
+        url: /<channel>?<anything>, 
         headers: req.headers
     }
 });
@@ -37,4 +37,4 @@ At present, **FluidBridge** doesn’t support HTTP methods other than GET.
 
 ## FluidBridge service is lightweight and almost stateless
 
-**FluidBridge** supports no validation of request url content, except of non-zero `*<channel>*` length, and `‘?’` symbol presence. You have to implement your own protocol over this service. 
+**FluidBridge** supports no validation of request url content, except of non-zero `<channel>` length, and `‘?’` symbol presence. You have to implement your own protocol over this service. 
