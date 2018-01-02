@@ -22,18 +22,22 @@ where `<channel>` is an arbitrary string containing no `‘?’` symbols, and `<
 For above request, **FluidBridge** emits **FluidSync** *publish* action:
 
 ```
-fluidsync.emit('publish', {
-    channel: <channel>,
-    from: 'webhook',
+// req is Node.js http.IncomingMessage instance, 
+// so we transfer pretty much info about web request
+// to <channel> listeners in FluidSync area
+
+fluidsync.emit(‘publish’, {
+    channel: ‘<channel>’,
+    from: ‘webhook’,
     payload: {
         method: req.method, 
-        url: /<channel>?<anything>, 
+        url: ‘/<channel>?<anything>’, 
         headers: req.headers
     }
 });
 ```
 
-At present, **FluidBridge** doesn’t support HTTP methods other than GET.
+At present, **FluidBridge** doesn’t support HTTP methods other than `GET`.
 
 ## FluidBridge service is lightweight and almost stateless
 
