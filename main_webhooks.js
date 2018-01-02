@@ -22,7 +22,7 @@ const httpServer = http.createServer((req, res) => {
 
     let incomingUrl = req.url;
 
-    console.log(incomingUrl);
+    //console.log(incomingUrl);
 
     if(fluidsyncSocketId && (incomingUrl !== '/'))
     {
