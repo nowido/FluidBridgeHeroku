@@ -10,7 +10,7 @@ Common use case is to fire events in **FluidSync** area from any program having 
 
 ## Why Heroku?
 
-[Heroku](https://www.heroku.com) grants a generous free hosting. Verified accounts (credit card needed) get 1000 monthly *dyno* hours for absolutely free. So, **FluidBridge** service runs 24 hours a day, accessible all over the world.
+[Heroku](https://www.heroku.com) grants a generous free hosting. Verified accounts (credit card needed) get 1000 monthly *dyno* hours for absolutely free. So, **FluidBridge** service runs 24 hours a day.
 
 ## FluidBridge usage
 
